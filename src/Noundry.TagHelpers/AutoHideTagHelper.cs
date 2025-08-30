@@ -6,56 +6,56 @@ namespace Noundry.TagHelpers;
 /// <summary>
 /// Automatically hides HTML elements after a specified delay with optional debug logging.
 /// </summary>
-[HtmlTargetElement("*", Attributes = "auto-hide")]
-[HtmlTargetElement("auto-hide")]
+[HtmlTargetElement("*", Attributes = "asp-auto-hide")]
+[HtmlTargetElement("asp-auto-hide")]
 public class AutoHideTagHelper : TagHelper
 {
     /// <summary>
     /// Whether to enable auto-hide functionality.
     /// </summary>
-    [HtmlAttributeName("auto-hide")]
+    [HtmlAttributeName("asp-auto-hide")]
     public bool AutoHide { get; set; } = true;
 
     /// <summary>
     /// Delay in seconds before hiding the element. Defaults to 5 seconds.
     /// </summary>
-    [HtmlAttributeName("auto-hide-delay")]
+    [HtmlAttributeName("asp-auto-hide-delay")]
     public int DelayInSeconds { get; set; } = 5;
 
     /// <summary>
     /// Whether to automatically start the hide timer after the element is rendered. Defaults to true.
     /// </summary>
-    [HtmlAttributeName("auto-hide-start")]
+    [HtmlAttributeName("asp-auto-hide-start")]
     public bool AutoStart { get; set; } = true;
 
     /// <summary>
     /// Whether to enable debug logging to the browser console. Defaults to false.
     /// </summary>
-    [HtmlAttributeName("auto-hide-debug")]
+    [HtmlAttributeName("asp-auto-hide-debug")]
     public bool Debug { get; set; } = false;
 
     /// <summary>
     /// The CSS transition effect to use when hiding. Examples: 'fade', 'slide-up', 'scale'. Defaults to 'fade'.
     /// </summary>
-    [HtmlAttributeName("auto-hide-effect")]
+    [HtmlAttributeName("asp-auto-hide-effect")]
     public string Effect { get; set; } = "fade";
 
     /// <summary>
     /// Duration of the hide animation in milliseconds. Defaults to 300ms.
     /// </summary>
-    [HtmlAttributeName("auto-hide-duration")]
+    [HtmlAttributeName("asp-auto-hide-duration")]
     public int AnimationDuration { get; set; } = 300;
 
     /// <summary>
     /// Whether to remove the element from DOM after hiding (vs just hiding with display:none). Defaults to false.
     /// </summary>
-    [HtmlAttributeName("auto-hide-remove")]
+    [HtmlAttributeName("asp-auto-hide-remove")]
     public bool RemoveFromDom { get; set; } = false;
 
     /// <summary>
     /// CSS selector for elements that should pause the auto-hide timer when hovered. Defaults to current element.
     /// </summary>
-    [HtmlAttributeName("auto-hide-pause-on")]
+    [HtmlAttributeName("asp-auto-hide-pause-on")]
     public string? PauseOnHover { get; set; }
 
     /// <inheritdoc />
@@ -82,8 +82,8 @@ public class AutoHideTagHelper : TagHelper
             output.Attributes.SetAttribute("id", elementId);
         }
 
-        // If this is an auto-hide element (not an attribute), set default tag and styling
-        if (output.TagName == "auto-hide")
+        // If this is an asp-auto-hide element (not an attribute), set default tag and styling
+        if (output.TagName == "asp-auto-hide")
         {
             output.TagName = "div";
             

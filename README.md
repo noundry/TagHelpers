@@ -141,41 +141,41 @@ Progressive Web App installation prompts:
 </pwa-install>
 ```
 
-#### `auto-hide` - Automatic Element Hiding 🎭
+#### `asp-auto-hide` - Automatic Element Hiding 🎭
 Automatically hide elements after a specified delay with smooth animations:
 ```cshtml
 <!-- Auto-hide alert after 5 seconds -->
 <alert alert-type="success" 
-       auto-hide="true"
-       auto-hide-delay="5"
-       auto-hide-effect="fade">
+       asp-auto-hide="true"
+       asp-auto-hide-delay="5"
+       asp-auto-hide-effect="fade">
     Operation completed successfully!
 </alert>
 
 <!-- Custom auto-hide component with slide effect -->
-<auto-hide auto-hide-delay="10" 
-           auto-hide-effect="slide-up"
-           auto-hide-debug="true"
-           class="bg-blue-50 border border-blue-200 text-blue-800 p-4 rounded-lg">
+<asp-auto-hide asp-auto-hide-delay="10" 
+               asp-auto-hide-effect="slide-up"
+               asp-auto-hide-debug="true"
+               class="bg-blue-50 border border-blue-200 text-blue-800 p-4 rounded-lg">
     This notification will slide up and disappear in 10 seconds.
     Hover to pause the timer.
-</auto-hide>
+</asp-auto-hide>
 
 <!-- Auto-hide with pause on hover -->
-<div auto-hide="true" 
-     auto-hide-delay="8"
-     auto-hide-pause-on=".notification-area"
+<div asp-auto-hide="true" 
+     asp-auto-hide-delay="8"
+     asp-auto-hide-pause-on=".notification-area"
      class="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg">
     Temporary notification that pauses when hovering over notification area
 </div>
 
 <!-- Advanced auto-hide with DOM removal -->
-<div auto-hide="true"
-     auto-hide-delay="15"
-     auto-hide-effect="scale"
-     auto-hide-duration="500"
-     auto-hide-remove="true"
-     auto-hide-start="false"
+<div asp-auto-hide="true"
+     asp-auto-hide-delay="15"
+     asp-auto-hide-effect="scale"
+     asp-auto-hide-duration="500"
+     asp-auto-hide-remove="true"
+     asp-auto-hide-start="false"
      id="custom-notification"
      class="transform transition-all duration-500 bg-indigo-100 border border-indigo-300 text-indigo-800 p-4 rounded-lg">
     This element will be completely removed from DOM.
@@ -372,19 +372,19 @@ Explore our **[Forms & UI Examples](https://your-demo-site.com/examples/forms)**
 
 <!-- Success message that auto-hides after form submission -->
 <alert alert-type="success" 
-       auto-hide="true"
-       auto-hide-delay="6"
-       auto-hide-effect="slide-up"
+       asp-auto-hide="true"
+       asp-auto-hide-delay="6"
+       asp-auto-hide-effect="slide-up"
        css-class="mb-4 shadow-md">
     Form submitted successfully! This message will disappear in 6 seconds.
 </alert>
 
 <!-- Toast notification example -->
-<auto-hide auto-hide-delay="5"
-           auto-hide-effect="fade"
-           class="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50">
+<asp-auto-hide asp-auto-hide-delay="5"
+               asp-auto-hide-effect="fade"
+               class="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50">
     🎉 Welcome! This greeting will fade away automatically.
-</auto-hide>
+</asp-auto-hide>
 ```
 
 ### Complete E-commerce Demo
@@ -472,9 +472,9 @@ See **[Complete Demo](https://your-demo-site.com/examples/complete)** for a full
                 <!-- Success message with auto-hide after adding to cart -->
                 <alert asp-if="@TempData["CartSuccess"]" 
                        alert-type="success"
-                       auto-hide="true"
-                       auto-hide-delay="4"
-                       auto-hide-effect="slide-up"
+                       asp-auto-hide="true"
+                       asp-auto-hide-delay="4"
+                       asp-auto-hide-effect="slide-up"
                        css-class="mt-4">
                     @TempData["CartSuccess"]
                 </alert>
@@ -649,8 +649,8 @@ Noundry.TagHelpers is designed exclusively for **Tailwind CSS** and provides sea
 ```cshtml
 <alert alert-type="success" 
        dismissible="true"
-       auto-hide="true"
-       auto-hide-delay="5"
+       asp-auto-hide="true"
+       asp-auto-hide-delay="5"
        css-class="max-w-md mx-auto shadow-lg">
     Account created successfully!
 </alert>
@@ -663,17 +663,17 @@ Noundry.TagHelpers is designed exclusively for **Tailwind CSS** and provides sea
 
 <!-- Toast notification stack -->
 <div class="fixed top-4 right-4 space-y-2 z-50">
-    <auto-hide auto-hide-delay="3"
-               auto-hide-effect="slide-up"
-               class="bg-green-500 text-white p-4 rounded-lg shadow-lg">
+    <asp-auto-hide asp-auto-hide-delay="3"
+                   asp-auto-hide-effect="slide-up"
+                   class="bg-green-500 text-white p-4 rounded-lg shadow-lg">
         File uploaded successfully
-    </auto-hide>
+    </asp-auto-hide>
     
-    <auto-hide auto-hide-delay="6"
-               auto-hide-effect="fade"
-               class="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
+    <asp-auto-hide asp-auto-hide-delay="6"
+                   asp-auto-hide-effect="fade"
+                   class="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
         Processing started...
-    </auto-hide>
+    </asp-auto-hide>
 </div>
 ```
 
@@ -733,7 +733,7 @@ builder.Services.Configure<TagHelperOptions>(options =>
 - **`form-group`** - Complete Tailwind CSS form groups with labels and validation
 - **`alert`** - Tailwind CSS alert components with dismissal and auto-dismiss
 - **`validation-message`** - Enhanced validation messages with Tailwind styling
-- **`auto-hide`** - Automatic element hiding with smooth animations and hover pause
+- **`asp-auto-hide`** - Automatic element hiding with smooth animations and hover pause
 - **`asp-unless`** - Complement to asp-if for negated conditional rendering
 - **`asp-authz-policy-any`** - OR logic authorization (ANY policy must be satisfied)
 

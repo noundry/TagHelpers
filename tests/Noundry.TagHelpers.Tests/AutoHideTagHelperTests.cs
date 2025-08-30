@@ -88,14 +88,14 @@ public class AutoHideTagHelperTests
     {
         // Arrange
         var context = new TagHelperContext(
-            "auto-hide",
+            "asp-auto-hide",
             new TagHelperAttributeList(),
             new Dictionary<object, object>(),
             "test"
         );
         
         var output = new TagHelperOutput(
-            "auto-hide",
+            "asp-auto-hide",
             new TagHelperAttributeList(),
             (result, encoder) =>
             {

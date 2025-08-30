@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🎭 Added AutoHideTagHelper - Automatic Element Hiding
 
 #### 🆕 New Features
-- **`auto-hide`** - Automatic element hiding with smooth animations inspired by Blazor AutoHide component
+- **`asp-auto-hide`** - Automatic element hiding with smooth animations inspired by Blazor AutoHide component
 - **Multiple animation effects** - fade, slide-up, scale with configurable duration
 - **Hover pause functionality** - Timer pauses on hover, resumes on mouse leave
 - **Programmatic control** - JavaScript API for manual timer control
