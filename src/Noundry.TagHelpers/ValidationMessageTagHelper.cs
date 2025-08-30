@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 namespace Noundry.TagHelpers;
 
 /// <summary>
-/// Renders validation messages for model properties with Bootstrap-compatible styling.
+/// Renders validation messages for model properties with Tailwind CSS styling.
 /// </summary>
 [HtmlTargetElement("validation-message")]
 [HtmlTargetElement("*", Attributes = "asp-validation-for")]
@@ -30,10 +30,10 @@ public class ValidationMessageTagHelper : TagHelper
     public ModelExpression? For { get; set; }
 
     /// <summary>
-    /// CSS classes to apply to the validation message container. Defaults to Bootstrap's 'invalid-feedback'.
+    /// CSS classes to apply to the validation message container. Defaults to Tailwind's 'mt-1 text-sm text-red-600'.
     /// </summary>
     [HtmlAttributeName("css-class")]
-    public string CssClass { get; set; } = "invalid-feedback";
+    public string CssClass { get; set; } = "mt-1 text-sm text-red-600";
 
     /// <summary>
     /// Whether to show validation messages as a list when there are multiple errors.

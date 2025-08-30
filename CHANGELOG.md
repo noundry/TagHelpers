@@ -9,14 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🎉 Initial Release - Noundry.TagHelpers
 
-This is the initial release of Noundry.TagHelpers, a comprehensive collection of modern Tag Helpers for ASP.NET Core applications. This library evolved from the excellent TagHelperPack project, enhanced with practical .NET development scenarios in mind.
+This is the initial release of Noundry.TagHelpers, a comprehensive collection of modern Tag Helpers for ASP.NET Core applications designed exclusively for **Tailwind CSS**. This library evolved from the excellent TagHelperPack project, enhanced with Tailwind's utility-first approach and practical .NET development scenarios in mind.
 
 ### 🆕 Added
 
-#### New Tag Helpers
-- **`form-group`** - Complete Bootstrap form groups with labels, inputs, validation, and help text
-- **`alert`** - Bootstrap alert components with dismissal, auto-dismiss, and icon support
-- **`validation-message`** - Enhanced validation messages with custom styling and Bootstrap compatibility
+#### New Tag Helpers (Tailwind CSS Optimized)
+- **`form-group`** - Complete Tailwind CSS form groups with labels, inputs, validation, and help text
+- **`alert`** - Tailwind CSS alert components with dismissal, auto-dismiss, and icon support
+- **`validation-message`** - Enhanced validation messages with Tailwind utility class styling
 - **`asp-unless`** - Complement to `asp-if` for negated conditional rendering
 - **`asp-authz-policy-any`** - NEW authorization attribute with OR logic (ANY policy must be satisfied)
 
@@ -122,12 +122,13 @@ builder.Services.AddNoundryTagHelpers();
 
 Noundry.TagHelpers focuses on:
 
-1. **Practical .NET Development** - Helpers that solve real-world ASP.NET Core challenges
-2. **Bootstrap Integration** - First-class support for Bootstrap components and patterns
-3. **Performance First** - Optimized for Core Web Vitals and modern web standards
-4. **Accessibility Built-in** - ARIA attributes and screen reader support by default
-5. **Type Safety** - Full nullable reference types and IntelliSense support
-6. **Modern C#** - Leveraging the latest language features and patterns
+1. **Tailwind CSS First** - Designed exclusively for Tailwind's utility-first approach
+2. **Practical .NET Development** - Helpers that solve real-world ASP.NET Core challenges
+3. **Utility Class Integration** - Seamless integration with Tailwind's design system
+4. **Performance First** - Optimized for Core Web Vitals and modern web standards
+5. **Accessibility Built-in** - ARIA attributes and screen reader support by default
+6. **Type Safety** - Full nullable reference types and IntelliSense support
+7. **Modern C#** - Leveraging the latest language features and patterns
 
 ### 🧪 Quality Assurance
 - **15 comprehensive tests** passing across all target frameworks

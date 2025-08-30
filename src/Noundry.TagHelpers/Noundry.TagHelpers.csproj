@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>net9.0;net8.0;net6.0</TargetFrameworks>
-    <Description>A comprehensive collection of modern, performance-focused Tag Helpers for ASP.NET Core applications with practical helpers, modern web APIs, and accessibility features.</Description>
-    <PackageTags>aspnetcore taghelpers razor cshtml noundry forms alerts authorization</PackageTags>
+    <Description>A comprehensive collection of modern, performance-focused Tag Helpers for ASP.NET Core applications designed exclusively for Tailwind CSS. Includes form helpers, alerts, authorization, and modern web APIs optimized for Tailwind's utility-first approach.</Description>
+    <PackageTags>aspnetcore taghelpers razor cshtml tailwindcss noundry forms alerts authorization utility-first</PackageTags>
     <Company>Noundry</Company>
     <Authors>Noundry</Authors>
     <Copyright>© Noundry. All rights reserved.</Copyright>
