@@ -141,6 +141,35 @@ Progressive Web App installation prompts:
 </pwa-install>
 ```
 
+#### `auto-hide` - Automatic Element Hiding 🎭
+Automatically hide elements after a specified delay with smooth animations:
+```cshtml
+<!-- Auto-hide alert after 5 seconds -->
+<alert alert-type="success" 
+       auto-hide="true"
+       auto-hide-delay="5"
+       auto-hide-effect="fade">
+    Operation completed successfully!
+</alert>
+
+<!-- Custom auto-hide component with slide effect -->
+<auto-hide auto-hide-delay="10" 
+           auto-hide-effect="slide-up"
+           auto-hide-debug="true"
+           class="bg-blue-50 border border-blue-200 text-blue-800 p-4 rounded-lg">
+    This notification will slide up and disappear in 10 seconds.
+    Hover to pause the timer.
+</auto-hide>
+
+<!-- Auto-hide with pause on hover -->
+<div auto-hide="true" 
+     auto-hide-delay="8"
+     auto-hide-pause-on=".notification-area"
+     class="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg">
+    Temporary notification that pauses when hovering over notification area
+</div>
+```
+
 ### 📋 Form & UI Helpers (Tailwind CSS)
 
 #### `form-group` - Tailwind Form Groups
@@ -629,6 +658,7 @@ builder.Services.Configure<TagHelperOptions>(options =>
 - **`form-group`** - Complete Tailwind CSS form groups with labels and validation
 - **`alert`** - Tailwind CSS alert components with dismissal and auto-dismiss
 - **`validation-message`** - Enhanced validation messages with Tailwind styling
+- **`auto-hide`** - Automatic element hiding with smooth animations and hover pause
 - **`asp-unless`** - Complement to asp-if for negated conditional rendering
 - **`asp-authz-policy-any`** - OR logic authorization (ANY policy must be satisfied)
 
