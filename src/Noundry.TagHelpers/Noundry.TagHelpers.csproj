@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net8.0;net6.0</TargetFrameworks>
+    <Description>A comprehensive collection of modern, performance-focused Tag Helpers for ASP.NET Core applications with practical helpers, modern web APIs, and accessibility features.</Description>
+    <PackageTags>aspnetcore taghelpers razor cshtml noundry forms alerts authorization</PackageTags>
+    <Company>Noundry</Company>
+    <Authors>Noundry</Authors>
+    <Copyright>© Noundry. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/plsft/Noundry.TagHelpers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/plsft/Noundry.TagHelpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <LangVersion>12.0</LangVersion>
+    <NoWarn>NU5105</NoWarn>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
+    <PackageReference Include="Markdig" Version="0.37.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="HtmlSanitizer" Version="8.1.870" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

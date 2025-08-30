@@ -1,0 +1,71 @@
+namespace Noundry.TagHelpers;
+
+/// <summary>
+/// Suppresses the output of the element if the supplied predicate equates to <c>false</c>.
+/// </summary>
+[HtmlTargetElement("*", Attributes = "asp-if")]
+[HtmlTargetElement("*", Attributes = "asp-unless")]
+public class IfTagHelper : TagHelper
+{
+    internal static object SuppressedKey = new();
+    internal static object SuppressedValue = new();
+
+    /// <summary>
+    /// Gets or sets the predicate expression to test.
+    /// </summary>
+    [HtmlAttributeName("asp-if")]
+    public bool Predicate { get; set; }
+
+    /// <summary>
+    /// Gets or sets the predicate expression to test (negated logic - renders if false).
+    /// </summary>
+    [HtmlAttributeName("asp-unless")]
+    public bool UnlessPredicate { get; set; }
+
+    /// <inheritdoc />
+    // Run before other Tag Helpers (default Order is 0) so they can cooperatively decide not to run.
+    // Note this value is coordinated with the value of AuthzTagHelper.Order to ensure the IfTagHelper logic runs first.
+    // (Lower values run earlier).
+    public override int Order => - 100;
+
+    /// <inheritdoc />
+    public override void Process(TagHelperContext context, TagHelperOutput output)
+    {
+        ArgumentNullException.ThrowIfNull(context);
+        ArgumentNullException.ThrowIfNull(output);
+
+        var shouldSuppress = false;
+
+        // Check if we have asp-if attribute
+        if (context.AllAttributes["asp-if"] != null)
+        {
+            shouldSuppress = !Predicate;
+        }
+        // Check if we have asp-unless attribute
+        else if (context.AllAttributes["asp-unless"] != null)
+        {
+            shouldSuppress = UnlessPredicate;
+        }
+
+        if (shouldSuppress)
+        {
+            output.SuppressOutput();
+            context.Items[SuppressedKey] = SuppressedValue;
+        }
+    }
+}
+
+/// <summary>
+/// Extension methods for <see cref="TagHelperContext"/>.
+/// </summary>
+public static class IfTagHelperContextExtensions
+{
+    /// <summary>
+    /// Determines if the <see cref="IfTagHelper"/> (<c>asp-if</c>) has suppressed rendering for the element associated with
+    /// this <see cref="TagHelperContext"/>.
+    /// </summary>
+    /// <param name="context">The <see cref="TagHelperContext"/>.</param>
+    /// <returns><c>true</c> if <c>asp-if</c> evaluated to <c>false</c>, else <c>false</c>.</returns>
+    public static bool SuppressedByAspIf(this TagHelperContext context) =>
+        context.Items.TryGetValue(IfTagHelper.SuppressedKey, out var value) && value == IfTagHelper.SuppressedValue;
+}

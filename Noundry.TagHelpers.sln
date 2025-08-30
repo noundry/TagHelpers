@@ -1,0 +1,64 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5B871B0D-8E1E-4350-9959-DE8ED19CA113}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{CE6635DE-0546-4ECC-949A-08192E19E366}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A1B2C3D4-5E6F-7890-ABCD-123456789DEF}"
+	ProjectSection(SolutionItems) = preProject
+		docs\CONTRIBUTING.md = docs\CONTRIBUTING.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noundry.TagHelpers", "src\Noundry.TagHelpers\Noundry.TagHelpers.csproj", "{5276EEB9-E167-40EB-ADD4-EA3FD22039C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noundry.TagHelpers.Sample", "examples\Noundry.TagHelpers.Sample\Noundry.TagHelpers.Sample.csproj", "{90885970-EF7F-4CFA-AEFB-AE8036A08B36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CD3E256-6511-47B5-9497-FA4FF7693BD8}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		global.json = global.json
+		README.md = README.md
+		CHANGELOG.md = CHANGELOG.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noundry.TagHelpers.Tests", "tests\Noundry.TagHelpers.Tests\Noundry.TagHelpers.Tests.csproj", "{AC6F851B-D942-488D-B0D0-4A4BD36796E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D88AC3E0-9631-41A9-A1CB-1961B011884F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5276EEB9-E167-40EB-ADD4-EA3FD22039C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5276EEB9-E167-40EB-ADD4-EA3FD22039C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5276EEB9-E167-40EB-ADD4-EA3FD22039C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5276EEB9-E167-40EB-ADD4-EA3FD22039C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90885970-EF7F-4CFA-AEFB-AE8036A08B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90885970-EF7F-4CFA-AEFB-AE8036A08B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90885970-EF7F-4CFA-AEFB-AE8036A08B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90885970-EF7F-4CFA-AEFB-AE8036A08B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC6F851B-D942-488D-B0D0-4A4BD36796E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6F851B-D942-488D-B0D0-4A4BD36796E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6F851B-D942-488D-B0D0-4A4BD36796E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6F851B-D942-488D-B0D0-4A4BD36796E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5276EEB9-E167-40EB-ADD4-EA3FD22039C4} = {5B871B0D-8E1E-4350-9959-DE8ED19CA113}
+		{90885970-EF7F-4CFA-AEFB-AE8036A08B36} = {CE6635DE-0546-4ECC-949A-08192E19E366}
+		{AC6F851B-D942-488D-B0D0-4A4BD36796E4} = {D88AC3E0-9631-41A9-A1CB-1961B011884F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59D4518E-872C-4D34-A5F6-385BB5D3B58C}
+	EndGlobalSection
+EndGlobal
