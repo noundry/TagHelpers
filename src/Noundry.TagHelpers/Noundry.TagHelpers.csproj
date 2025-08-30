@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>net9.0;net8.0;net6.0</TargetFrameworks>
-    <Description>A comprehensive collection of modern, performance-focused Tag Helpers for ASP.NET Core applications designed exclusively for Tailwind CSS. Includes form helpers, alerts, authorization, and modern web APIs optimized for Tailwind's utility-first approach.</Description>
-    <PackageTags>aspnetcore taghelpers razor cshtml tailwindcss noundry forms alerts authorization utility-first</PackageTags>
+    <Version>1.1.0</Version>
+    <Description>A comprehensive collection of modern, performance-focused Tag Helpers for ASP.NET Core applications designed exclusively for Tailwind CSS. Includes form helpers, alerts, authorization, auto-hide functionality, and modern web APIs optimized for Tailwind's utility-first approach.</Description>
+    <PackageTags>aspnetcore taghelpers razor cshtml tailwindcss noundry forms alerts authorization utility-first auto-hide animations</PackageTags>
     <Company>Noundry</Company>
     <Authors>Noundry</Authors>
     <Copyright>© Noundry. All rights reserved.</Copyright>
@@ -11,6 +12,7 @@
     <RepositoryUrl>https://github.com/plsft/Noundry.TagHelpers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>v1.1.0: Added AutoHideTagHelper with advanced animations, hover pause, and programmatic controls. Perfect for toast notifications and temporary UI elements.</PackageReleaseNotes>
     <LangVersion>12.0</LangVersion>
     <NoWarn>NU5105</NoWarn>
     <Nullable>enable</Nullable>

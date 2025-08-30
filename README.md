@@ -168,6 +168,37 @@ Automatically hide elements after a specified delay with smooth animations:
      class="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg">
     Temporary notification that pauses when hovering over notification area
 </div>
+
+<!-- Advanced auto-hide with DOM removal -->
+<div auto-hide="true"
+     auto-hide-delay="15"
+     auto-hide-effect="scale"
+     auto-hide-duration="500"
+     auto-hide-remove="true"
+     auto-hide-start="false"
+     id="custom-notification"
+     class="transform transition-all duration-500 bg-indigo-100 border border-indigo-300 text-indigo-800 p-4 rounded-lg">
+    This element will be completely removed from DOM.
+    <button onclick="window.autoHide_custom_notification.start()" 
+            class="ml-2 px-2 py-1 bg-indigo-200 rounded text-xs">
+        Start Timer
+    </button>
+</div>
+```
+
+**JavaScript API for Programmatic Control:**
+```javascript
+// Access the auto-hide controls
+const controls = window.autoHide_[elementId];
+
+// Start or restart the timer
+controls.start();
+
+// Hide immediately with animation
+controls.hide();
+
+// Cancel the timer
+controls.cancel();
 ```
 
 ### 📋 Form & UI Helpers (Tailwind CSS)
@@ -325,18 +356,35 @@ Visit our **[Simple Examples](https://your-demo-site.com/examples/simple)** page
 Explore our **[Forms & UI Examples](https://your-demo-site.com/examples/forms)** for practical Tailwind patterns:
 
 ```cshtml
-<!-- Tailwind form components -->
-<form-group asp-for="Email" 
-            label="Email" 
-            required="true"
-            container-class="mb-6">
-</form-group>
+<!-- Tailwind form components with auto-hide success message -->
+<form method="post">
+    <form-group asp-for="Email" 
+                label="Email" 
+                required="true"
+                container-class="mb-6">
+    </form-group>
+    
+    <button type="submit" 
+            class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+        Submit
+    </button>
+</form>
 
+<!-- Success message that auto-hides after form submission -->
 <alert alert-type="success" 
-       dismissible="true"
+       auto-hide="true"
+       auto-hide-delay="6"
+       auto-hide-effect="slide-up"
        css-class="mb-4 shadow-md">
-    Form submitted successfully!
+    Form submitted successfully! This message will disappear in 6 seconds.
 </alert>
+
+<!-- Toast notification example -->
+<auto-hide auto-hide-delay="5"
+           auto-hide-effect="fade"
+           class="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50">
+    🎉 Welcome! This greeting will fade away automatically.
+</auto-hide>
 ```
 
 ### Complete E-commerce Demo
@@ -419,6 +467,16 @@ See **[Complete Demo](https://your-demo-site.com/examples/complete)** for a full
                        alert-type="warning"
                        css-class="mt-4">
                     This product is currently out of stock
+                </alert>
+                
+                <!-- Success message with auto-hide after adding to cart -->
+                <alert asp-if="@TempData["CartSuccess"]" 
+                       alert-type="success"
+                       auto-hide="true"
+                       auto-hide-delay="4"
+                       auto-hide-effect="slide-up"
+                       css-class="mt-4">
+                    @TempData["CartSuccess"]
                 </alert>
                 
                 <!-- Admin/Moderator only features -->
@@ -591,6 +649,8 @@ Noundry.TagHelpers is designed exclusively for **Tailwind CSS** and provides sea
 ```cshtml
 <alert alert-type="success" 
        dismissible="true"
+       auto-hide="true"
+       auto-hide-delay="5"
        css-class="max-w-md mx-auto shadow-lg">
     Account created successfully!
 </alert>
@@ -600,6 +660,21 @@ Noundry.TagHelpers is designed exclusively for **Tailwind CSS** and provides sea
        css-class="border-l-4 border-red-500">
     Please fix the errors below.
 </alert>
+
+<!-- Toast notification stack -->
+<div class="fixed top-4 right-4 space-y-2 z-50">
+    <auto-hide auto-hide-delay="3"
+               auto-hide-effect="slide-up"
+               class="bg-green-500 text-white p-4 rounded-lg shadow-lg">
+        File uploaded successfully
+    </auto-hide>
+    
+    <auto-hide auto-hide-delay="6"
+               auto-hide-effect="fade"
+               class="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
+        Processing started...
+    </auto-hide>
+</div>
 ```
 
 ## 🔧 Configuration Options

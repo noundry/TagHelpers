@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2024-12-19
+
+### 🎭 Added AutoHideTagHelper - Automatic Element Hiding
+
+#### 🆕 New Features
+- **`auto-hide`** - Automatic element hiding with smooth animations inspired by Blazor AutoHide component
+- **Multiple animation effects** - fade, slide-up, scale with configurable duration
+- **Hover pause functionality** - Timer pauses on hover, resumes on mouse leave
+- **Programmatic control** - JavaScript API for manual timer control
+- **Debug logging** - Optional console logging for development
+- **Tailwind CSS optimized** - Default styling works perfectly with Tailwind utilities
+
+#### 🧪 Testing Enhanced
+- **Added 10 comprehensive tests** for AutoHideTagHelper functionality
+- **Total test count: 25 tests** all passing across .NET 6, 8, and 9
+- **Enhanced test coverage** for animation effects, timing, and element handling
+
+---
+
 ## [1.0.0] - 2024-12-19
 
 ### 🎉 Initial Release - Noundry.TagHelpers
