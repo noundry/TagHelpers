@@ -1,0 +1,54 @@
+name: Publish to NuGet
+
+on:
+  release:
+    types: [ published ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.1.0)'
+        required: true
+        type: string
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  publish:
+    name: Build and Publish to NuGet
+    runs-on: ubuntu-latest
+    if: github.repository == 'plsft/Noundry.TagHelpers'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore src/Noundry.TagHelpers/Noundry.TagHelpers.csproj
+    
+    - name: Build library
+      run: dotnet build src/Noundry.TagHelpers/Noundry.TagHelpers.csproj --no-restore --configuration Release
+    
+    - name: Run tests
+      run: dotnet test tests/Noundry.TagHelpers.Tests/Noundry.TagHelpers.Tests.csproj --configuration Release --verbosity normal
+    
+    - name: Pack NuGet package
+      run: dotnet pack src/Noundry.TagHelpers/Noundry.TagHelpers.csproj --configuration Release --output ./packages --no-build
+    
+    - name: Push to NuGet
+      run: dotnet nuget push ./packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      if: ${{ !env.ACT }}  # Skip when running locally with act
+    
+    - name: Upload packages as artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-packages-release
+        path: ./packages/*.nupkg

@@ -1,42 +1,91 @@
-name: CI
+name: Noundry.TagHelpers CI
 
 on:
   push:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
 
 jobs:
-  test:
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         dotnet-version: ['6.0.x', '8.0.x', '9.0.x']
     
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     
     - name: Setup .NET ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Noundry.TagHelpers.sln
     
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
+    - name: Build library
+      run: dotnet build src/Noundry.TagHelpers/Noundry.TagHelpers.csproj --no-restore --configuration Release
     
-    - name: Test
-      run: dotnet test --no-build --configuration Release --verbosity normal
+    - name: Build tests
+      run: dotnet build tests/Noundry.TagHelpers.Tests/Noundry.TagHelpers.Tests.csproj --no-restore --configuration Release
     
-    - name: Pack
-      run: dotnet pack --no-build --configuration Release --output ./packages
+    - name: Run tests
+      run: dotnet test tests/Noundry.TagHelpers.Tests/Noundry.TagHelpers.Tests.csproj --no-build --configuration Release --verbosity normal --logger trx --results-directory TestResults
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ matrix.dotnet-version }}
+        path: TestResults/*.trx
+    
+    - name: Pack NuGet package
+      run: dotnet pack src/Noundry.TagHelpers/Noundry.TagHelpers.csproj --no-build --configuration Release --output ./packages
       if: matrix.dotnet-version == '9.0.x'
     
-    - name: Upload packages
+    - name: Upload NuGet packages
       uses: actions/upload-artifact@v4
       with:
-        name: packages
-        path: ./packages
+        name: nuget-packages
+        path: ./packages/*.nupkg
       if: matrix.dotnet-version == '9.0.x'
+
+  build-examples:
+    name: Build Examples
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore Noundry.TagHelpers.sln
+    
+    - name: Build examples (verify they compile)
+      run: dotnet build examples/Noundry.TagHelpers.Sample/Noundry.TagHelpers.Sample.csproj --configuration Release
+      continue-on-error: true # Examples might have issues but shouldn't fail the main build

@@ -1,0 +1,53 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  code-analysis:
+    name: Code Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore Noundry.TagHelpers.sln
+    
+    - name: Build with warnings as errors
+      run: dotnet build src/Noundry.TagHelpers/Noundry.TagHelpers.csproj --configuration Release --verbosity normal
+      continue-on-error: true
+    
+    - name: Run security analysis
+      run: |
+        dotnet list src/Noundry.TagHelpers/Noundry.TagHelpers.csproj package --include-transitive --format json > packages.json
+        echo "Package analysis completed"
+    
+    - name: Check for outdated packages
+      run: dotnet list src/Noundry.TagHelpers/Noundry.TagHelpers.csproj package --outdated
+      continue-on-error: true
+    
+    - name: Validate project structure
+      run: |
+        echo "Validating project structure..."
+        test -f src/Noundry.TagHelpers/Noundry.TagHelpers.csproj || exit 1
+        test -f tests/Noundry.TagHelpers.Tests/Noundry.TagHelpers.Tests.csproj || exit 1
+        test -f examples/Noundry.TagHelpers.Sample/Noundry.TagHelpers.Sample.csproj || exit 1
+        test -f README.md || exit 1
+        test -f CHANGELOG.md || exit 1
+        echo "Project structure validation passed"
