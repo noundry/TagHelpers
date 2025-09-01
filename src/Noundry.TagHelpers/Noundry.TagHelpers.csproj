@@ -8,8 +8,8 @@
     <Company>Noundry</Company>
     <Authors>Noundry</Authors>
     <Copyright>© Noundry. All rights reserved.</Copyright>
-    <PackageProjectUrl>https://github.com/plsft/Noundry.TagHelpers</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/plsft/Noundry.TagHelpers</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/noundry/TagHelpers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/noundry/TagHelpers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>v1.1.0: Added AutoHideTagHelper with advanced animations, hover pause, and programmatic controls. Perfect for toast notifications and temporary UI elements.</PackageReleaseNotes>

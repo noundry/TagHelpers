@@ -3,7 +3,7 @@
 [![.NET](https://img.shields.io/badge/.NET-6.0%20%7C%208.0%20%7C%209.0-512BD4)](https://dotnet.microsoft.com/)
 [![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-6.0%2B-512BD4)](https://asp.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/badge/GitHub-plsft%2FNoundry.TagHelpers-blue)](https://github.com/plsft/Noundry.TagHelpers)
+[![GitHub](https://img.shields.io/badge/GitHub-noundry%2FTagHelpers-blue)](https://github.com/noundry/TagHelpers)
 [![NuGet](https://img.shields.io/nuget/v/Noundry.TagHelpers.svg)](https://www.nuget.org/packages/Noundry.TagHelpers/)
 
 A comprehensive collection of **modern, performance-focused Tag Helpers** for ASP.NET Core applications designed specifically for **Tailwind CSS**. Built with the latest .NET features and best practices to enhance your Razor pages and views with practical helpers, modern web APIs, and accessibility features - all optimized for Tailwind's utility-first approach.
@@ -768,8 +768,8 @@ We welcome contributions! Please see our [Contributing Guide](docs/CONTRIBUTING.
 
 ### Development Setup
 ```bash
-git clone https://github.com/plsft/Noundry.TagHelpers.git
-cd Noundry.TagHelpers
+git clone https://github.com/noundry/TagHelpers.git
+cd TagHelpers
 dotnet restore
 dotnet build
 dotnet test
@@ -831,13 +831,13 @@ Special thanks to all the contributors who helped shape this library into a prac
 
 ## 📞 Support & Community
 
-- **🐛 Issues**: [GitHub Issues](https://github.com/plsft/Noundry.TagHelpers/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/plsft/Noundry.TagHelpers/discussions)
-- **📖 Documentation**: [Wiki](https://github.com/plsft/Noundry.TagHelpers/wiki)
+- **🐛 Issues**: [GitHub Issues](https://github.com/noundry/TagHelpers/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/noundry/TagHelpers/discussions)
+- **📖 Documentation**: [Wiki](https://github.com/noundry/TagHelpers/wiki)
 - **📧 Contact**: [noundry@example.com](mailto:noundry@example.com)
 
 ---
 
 **⭐ Star this repo if Noundry.TagHelpers helps you build better web applications!**
 
-**Made with 🚀 by [Noundry](https://github.com/plsft) for the ASP.NET Core community**
+**Made with 🚀 by [Noundry](https://github.com/noundry) for the ASP.NET Core community**
