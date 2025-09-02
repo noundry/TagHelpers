@@ -4,7 +4,12 @@
       "Bash(git remote add:*)",
       "Bash(git push:*)",
       "Bash(gh repo edit:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(dotnet build)",
+      "Bash(dotnet clean:*)",
+      "Bash(dotnet test)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

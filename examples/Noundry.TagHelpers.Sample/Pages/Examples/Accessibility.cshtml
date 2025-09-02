@@ -1,5 +1,5 @@
 @page "/examples/accessibility"
-@model TagHelperPack.Sample.Pages.Examples.AccessibilityModel
+@model Noundry.TagHelpers.Sample.Pages.Examples.AccessibilityModel
 @{
     ViewData["Title"] = "Accessibility Examples";
 }
@@ -610,7 +610,7 @@ function validateAccessibleForm(event) {
     let valid = true;
     
     // Email validation
-    if (!email.value || !email.value.includes('@')) {
+    if (!email.value || !email.value.includes('@@')) {
         document.getElementById('email-error').textContent = 'Please enter a valid email address.';
         email.classList.add('is-invalid');
         valid = false;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TagHelperPack.Sample.Models;
+using Noundry.TagHelpers.Sample.Models;
 
 namespace Noundry.TagHelpers.Sample.Pages;
 

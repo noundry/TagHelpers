@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 #if NET6_0_OR_GREATER
 using Microsoft.Extensions.Hosting;
 #endif
-using TagHelperPack.Sample.Services;
+using Noundry.TagHelpers.Sample.Services;
 
 namespace Noundry.TagHelpers.Sample;
 
@@ -56,7 +56,7 @@ public class Startup
         });
 
         // Optional optimizations to avoid Reflection
-        services.AddTagHelperPack();
+        services.AddNoundryTagHelpers();
 
 #if NET6_0_OR_GREATER
         services.AddRazorPages();
