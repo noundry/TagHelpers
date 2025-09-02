@@ -18,7 +18,7 @@ jobs:
   publish:
     name: Build and Publish to NuGet
     runs-on: ubuntu-latest
-    if: github.repository == 'plsft/Noundry.TagHelpers'
+    if: github.repository == 'noundry/TagHelpers'
     
     steps:
     - name: Checkout code
